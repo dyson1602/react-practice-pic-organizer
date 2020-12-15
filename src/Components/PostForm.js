@@ -15,7 +15,7 @@ class PostForm extends React.Component {
   localSubmitHandler = (e) => {
     e.preventDefault()
     this.props.submitHandler(this.state)
-    e.target.reset()
+    this.setState({ title: "", img_url: "" })
   }
 
   render() {
@@ -24,11 +24,14 @@ class PostForm extends React.Component {
         <form onSubmit={this.localSubmitHandler} class="col s12 push-s3">
           <div class="row">
             <div class="input-field col s6">
-              <input type="text" name="title" placeholder="title" value={this.state.title} onChange={this.inputChangeHandler} />            </div>
+              <input type="text" name="title" placeholder="title" value={this.state.title}
+                onChange={this.inputChangeHandler} />
+            </div>
           </div>
           <div class="row">
             <div class="input-field col s6">
-              <input type="text" name="img_url" placeholder="img url" value={this.state.img_url} onChange={this.inputChangeHandler} />
+              <input type="text" name="img_url" placeholder="img url" value={this.state.img_url}
+                onChange={this.inputChangeHandler} />
             </div>
           </div>
           <button class="btn waves-effect waves-light">Submit</button>

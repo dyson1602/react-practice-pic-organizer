@@ -12,11 +12,11 @@ class ImageContainer extends React.Component {
     starredOnly: false
   }
 
-  //HELPER FUNCTIONS
+  //EVENT HANDLERS
 
   filteredImages = () => {
     if (this.state.starredOnly === false) {
-      
+
       let filteredArray = this.state.images.filter(image => image.title.toLowerCase()
         .includes(this.state.searchTerm.toLowerCase()))
 
@@ -40,23 +40,9 @@ class ImageContainer extends React.Component {
     this.setState(prevState => ({ starredOnly: !prevState.starredOnly }))
   }
 
-  //API REQUESTS
-
-  componentDidMount() {
-    fetch('http://localhost:4000/images').then(r => r.json()).then(images => this.setState({ images: images }))
-  }
-
   submitHandler = (imgObj) => {
     this.setState({ images: [...this.state.images, imgObj] })
-    fetch('http://localhost:4000/images', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(imgObj)
-    })
-      .then(resp => resp.json())
-      .then(postedImg => console.log('success'))
+    this.postImageFetch(imgObj)
   }
 
   starredHandler = (imgId) => {
@@ -64,8 +50,29 @@ class ImageContainer extends React.Component {
     let starImg = optimisticImgArray.find(image => image.id === imgId)
     starImg.starred = !starImg.starred
     this.setState({ images: optimisticImgArray })
-    console.log(starImg)
-    fetch(`http://localhost:4000/images/${imgId}`, {
+    this.starredSwitchFetch(imgId, starImg)
+  }
+
+  //API REQUESTS
+
+  async componentDidMount() {
+    const apiResponse = await fetch('http://localhost:4000/images')
+    const imageArray = await apiResponse.json()
+    this.setState({ images: imageArray })
+  }
+
+  postImageFetch = async (imgObj) => {
+    await fetch('http://localhost:4000/images', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(imgObj)
+    })
+  }
+
+  starredSwitchFetch = async (imgId, starImg) => {
+    await fetch(`http://localhost:4000/${imgId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -73,6 +80,7 @@ class ImageContainer extends React.Component {
       body: JSON.stringify(starImg)
     })
   }
+
 
   //RENDER CONTAINER
 
