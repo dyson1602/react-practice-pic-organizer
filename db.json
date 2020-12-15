@@ -33,13 +33,13 @@
     {
       "title": "fisher's wedding",
       "img_url": "https://i.imgur.com/GEMlmmn.png",
-      "starred": true,
+      "starred": false,
       "id": 6
     },
     {
       "title": "poncho as baby yoda",
       "img_url": "https://i.imgur.com/htFtHFq.png",
-      "starred": true,
+      "starred": false,
       "id": 7
     },
     {
@@ -47,6 +47,12 @@
       "img_url": "https://i.imgur.com/QV2KRjM.png",
       "starred": false,
       "id": 8
+    },
+    {
+      "title": "mise en place",
+      "img_url": "https://i.imgur.com/ibhyW3m.png",
+      "starred": false,
+      "id": 9
     }
   ]
 }

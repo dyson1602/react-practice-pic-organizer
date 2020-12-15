@@ -16,13 +16,17 @@ class ImageContainer extends React.Component {
 
   filteredImages = () => {
     if (this.state.starredOnly === false) {
+      
       let filteredArray = this.state.images.filter(image => image.title.toLowerCase()
         .includes(this.state.searchTerm.toLowerCase()))
+
       return filteredArray.map(image => <ImageCard key={image.id}
         imageObj={image} starredHandler={this.starredHandler} />)
     } else {
+
       let starredArray = this.state.images.filter(image => image.title.toLowerCase()
         .includes(this.state.searchTerm.toLowerCase()) && image.starred === true)
+
       return starredArray.map(image => <ImageCard key={image.id}
         imageObj={image} starredHandler={this.starredHandler} />)
     }

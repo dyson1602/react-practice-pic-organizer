@@ -15,6 +15,7 @@ class PostForm extends React.Component {
   localSubmitHandler = (e) => {
     e.preventDefault()
     this.props.submitHandler(this.state)
+    e.target.reset()
   }
 
   render() {
@@ -33,10 +34,6 @@ class PostForm extends React.Component {
           <button class="btn waves-effect waves-light">Submit</button>
         </form>
       </div>
-
-
-
-
     )
   }
 
