@@ -1,0 +1,52 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "title": "paco in lap",
+      "img_url": "https://imgur.com/57YhpDR.png",
+      "starred": false
+    },
+    {
+      "id": 2,
+      "title": "angry album cover",
+      "img_url": "https://imgur.com/JhggLFL.png",
+      "starred": false
+    },
+    {
+      "id": 3,
+      "title": "fairy lights garden",
+      "img_url": "https://imgur.com/UCYq4c0.png",
+      "starred": false
+    },
+    {
+      "id": 4,
+      "title": "dad the man",
+      "img_url": "https://imgur.com/ftRPDBZ.png",
+      "starred": false
+    },
+    {
+      "title": "yucca tots",
+      "img_url": "https://i.imgur.com/xNDvF9e.png",
+      "starred": false,
+      "id": 5
+    },
+    {
+      "title": "fisher's wedding",
+      "img_url": "https://i.imgur.com/GEMlmmn.png",
+      "starred": true,
+      "id": 6
+    },
+    {
+      "title": "poncho as baby yoda",
+      "img_url": "https://i.imgur.com/htFtHFq.png",
+      "starred": true,
+      "id": 7
+    },
+    {
+      "title": "snuggle burt",
+      "img_url": "https://i.imgur.com/QV2KRjM.png",
+      "starred": false,
+      "id": 8
+    }
+  ]
+}
